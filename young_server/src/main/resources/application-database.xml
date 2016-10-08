@@ -75,16 +75,42 @@
 	</bean>
 
 	<!-- 自动扫描了所有的XxxxMapper.xml对应的mapper接口文件，这样就不用一个一个手动配置Mpper的映射了，只要Mapper接口类和Mapper映射文件对应起来就可以了。 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.xiaola.dao" />
+
+	<!--把org.mybatis修改为tk.mybatis 通用mapper 封装了对简单语句的查询 -->
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.xiaola.dao,com.isea533.mybatis.mapper,com.isea533.mybatis.mapperhelper" />
+	    <property name="properties">
+			<value>
+				mappers = tk.mybatis.mapper.common.Mapper
+			</value>
+		</property>
 	</bean>
+
 
 	<!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置mybatis-config文件位置-->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
-		<!-- <property name="typeAliasesPackage" value="com.tiantian.ckeditor.model"
-			/> -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath*:mapper/*.xml</value>
+			</array>
+		</property>
+		<!--实体类-->
+		<property name="typeAliasesPackage" value="com.xiaola.entity"/>
+		<!--分页实体-->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageHelper">
+					<property name="properties">
+						<value>
+							dialect = mysql
+							reasonable = true
+						</value>
+					</property>
+				</bean>
+			</array>
+		</property>
 	</bean>
 
 

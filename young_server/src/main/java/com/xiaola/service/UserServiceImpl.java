@@ -20,9 +20,9 @@ public class UserServiceImpl implements IUserService{
     public Integer addUser() {
 
         UserInfo userInfo = new UserInfo();
-        userInfo.setAccount("123456");
-        userInfo.setPassword("123456");
-        userInfo.setUserName("123456");
+        userInfo.setAccount("mapper test");
+        userInfo.setPassword("mapper test");
+        userInfo.setUserName("mapper test");
         userInfo.setCreated(123445456565l);
         userInfo.setUpdated(123454565656l);
 

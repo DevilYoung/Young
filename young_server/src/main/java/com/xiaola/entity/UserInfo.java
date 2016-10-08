@@ -1,15 +1,28 @@
 package com.xiaola.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by xiaola on 16/9/21.
  */
+@Table(name="UserInfo")
 public class UserInfo {
+    @Id
+    @Column(name = "id")
     private Long id;
+    @Column(name = "account")
     private String account;
+    @Column(name = "userName")
     private String userName;
+    @Column(name ="password")
     private String password;
+    @Column(name = "isDeleted",insertable = false)
     private Integer isDeleted;
+    @Column(name = "created")
     private Long created;
+    @Column(name = "updated")
     private Long updated;
 
     public Long getId() {

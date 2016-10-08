@@ -3,22 +3,22 @@
 <mapper namespace="com.xiaola.dao.UserInfoMapper">
 
 
-	<insert id="insert" parameterType="com.xiaola.entity.UserInfo" useGeneratedKeys="true"
-			keyProperty="id">
-		INSERT INTO UserInfo(
-		id,
-		account,
-		password,
-		userName,
-	    created,
-		updated
-		)VALUES (
-		#{id},
-		#{account},
-		#{password},
-		#{userName},
-		#{created},
-		#{updated}
-		)
-	</insert>
+	<!--<insert id="insert" parameterType="com.xiaola.entity.UserInfo" useGeneratedKeys="true"-->
+			<!--keyProperty="id">-->
+		<!--INSERT INTO UserInfo(-->
+		<!--id,-->
+		<!--account,-->
+		<!--password,-->
+		<!--userName,-->
+	    <!--created,-->
+		<!--updated-->
+		<!--)VALUES (-->
+		<!--#{id},-->
+		<!--#{account},-->
+		<!--#{password},-->
+		<!--#{userName},-->
+		<!--#{created},-->
+		<!--#{updated}-->
+		<!--)-->
+	<!--</insert>-->
 </mapper>
