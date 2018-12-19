@@ -16,7 +16,7 @@ public class UserFacade {
     private IUserService userService;
 
     public  String getUserName(){
-        String result =  userService.getUserName();
-        return  result;
+        userService.addUser();
+        return  "result";
     }
 }
